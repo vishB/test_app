@@ -1,0 +1,23 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Albums</h3>
+    
+  </div>
+  <%@albums.each do |album|%>
+    <div style="float:left">
+      <%=link_to (image_tag("photo_album.png",:style=>"width:50px;height:50px;")),album%>
+      <p><%=link_to "#{album.name}", albums_path(album)%><br/><%=album.photos.count%> photos</p>
+    </div>
+  <%end%>
+</div>
+<div style="float:left;">
+<div class="container">
+  <div class="row">
+    <%=render :partial=>'photo_list'%>
+  </div>
+</div>
+</div>
+
+
+
+

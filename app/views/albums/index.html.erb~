@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Albums
+    <a href="#myModal" role="button" data-toggle="modal" id="clickme" title="Create New Album"><%=image_tag("add_album.png")%></a></h3>
+  </div>
+  
+  <div style="float:right;">
+      <h4>
+        <%=link_to "All", albums_path,:class=>"album-link"%>(<%=@all_photos.count%> photos)
+      </h4>
+    </div>
+  <%@albums.each do |album|%>
+    <div class = "album-thumb">
+      <%=link_to (image_tag("photo_album.png",:class=>"logo")),albums_path(:id => album),:class=>"album-link"%>
+      <p>
+        <%=link_to "#{album.name}", albums_path(:id => album),:class=>"album-link"%><br/>
+        <%=album.photos.count%> photos
+        <%= link_to (image_tag("zip.png",:class=>"zip",:title=>"click to download")),zip_path(album)%>
+      </p>
+      <div class="tools">
+        <%= link_to (image_tag("cool_icons/computer_mouse.png")), album %>
+        <%= link_to (image_tag("cool_icons/edit.png")), edit_album_path(album) %>
+        <%= link_to (image_tag("cool_icons/delete.png")), album, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  <%end%>
+</div>
+<div style="float:left;">
+<div class="container">
+  <div class="row">
+    <%=render :partial=>'photos/photo_list'%>
+  </div>
+</div>
+</div>
+
+
+  <%=render :partial=>"new_album"%>
+

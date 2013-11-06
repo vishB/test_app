@@ -1,0 +1,8 @@
+<%if @friends.blank?%>
+  <h3>No friends yet!! look for someone you know.</h3>
+  <%@users.each do |user|%>
+    <p><%=user.email%></p>
+    <p><%=link_to "Add friend",send_request_path(:sender=>"#{current_user.id}",:receiver => user )%></p>
+  <%end%>
+<%end%>
+

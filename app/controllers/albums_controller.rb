@@ -1,0 +1,133 @@
+class AlbumsController < ApplicationController
+  before_action :set_album, only: [:show, :edit, :update, :destroy, :create_zip]
+  before_filter :authenticate_user!
+
+  # GET /albums
+  # GET /albums.json
+  def index
+    @albums = current_user.albums.all
+    @album = Album.new
+    @photos = current_user.photos.paginate(:page => params[:page], :per_page => 20)
+    @all_photos = current_user.photos.all
+    
+    if !params[:album_id].blank?
+     @photos = current_user.photos.where('album_id' => params[:album_id]).paginate(:page => params[:page], :per_page => 20)
+     @name = Album.find(params[:album_id]).name
+    end
+
+#    if !params[:edit_album].blank?
+#      @edit = params[:edit_album]
+#    end
+  end
+  
+  def album_images
+  
+  end
+  
+  # GET /albums/1
+  # GET /albums/1.json
+  def show
+    @photos = Photo.where('album_id' => params[:id]).paginate(:page => params[:page], :per_page => 20)
+  end
+
+  # GET /albums/new
+  def new
+    @album = Album.new
+    #redirect_to album(:@album => @album)
+  end
+
+  # GET /albums/1/edit
+  def edit
+    @edit = params[:id]
+  end
+
+  # POST /albums
+  # POST /albums.json
+  def create
+    @album = Album.new(album_params)
+
+    respond_to do |format|
+      if @album.save
+        format.html { redirect_to action: 'index', notice: 'Album was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @album }
+      else
+        format.html { render action: 'index' }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /albums/1
+  # PATCH/PUT /albums/1.json
+  def update
+    respond_to do |format|
+      if @album.update(album_params)
+        format.html { redirect_to @album, notice: 'Album was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /albums/1
+  # DELETE /albums/1.json
+  def destroy
+    @album.destroy
+    respond_to do |format|
+      format.html { redirect_to albums_url }
+      format.json { head :no_content }
+    end
+  end
+  
+  def create_zip
+    @album = params[:id]
+    to_zip_items_path = Album.find(@album).photos.collect{|p| p.avatar('original')}
+    to_zip_items_name = Album.find(@album).photos.collect{|p| p.avatar_file_name}
+    album = Album.find(@album).name
+    
+    zip_info = Hash.new
+    i=0
+    to_zip_items_name.each do |f|
+      zip_info[f] = to_zip_items_path[i]
+      i = i+1
+    end
+    
+     zip_status = Album.get_zip(zip_info,album) #get zip status
+     send_file "#{zip_status}",:disposition => 'inline' if !zip_status.blank?
+     #Album.delete_zip(zip_status)
+
+    #render text: album
+  end
+
+  def move_to_album
+    photos = Array.new
+    params.each do |key,value|
+      photos << value if key.starts_with?'check'
+    end
+
+    photos.each do |p|
+      
+      current_photo = Photo.find_by_id("#{p}")
+      current_photo.album_id = params[:album]
+      current_photo.save
+      
+    end
+
+    redirect_to albums_path
+    
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_album
+      @album = Album.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def album_params
+      params.require(:album).permit(:user_id,:name, :description, :location, :privacy)
+    end
+    
+end

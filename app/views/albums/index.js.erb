@@ -1,0 +1,3 @@
+$("#list").html("<%=escape_javascript(render (:partial =>"photos/photo_list", :locals => {:@photos})%>")
+
+$( "#preview" ).html( "<%= escape_javascript( render( :partial => "widget", :locals => { :widget => @widget} ) ) %>" );

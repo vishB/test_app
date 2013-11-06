@@ -1,0 +1,13 @@
+paths = ["/system/photos/avatars/000/000/071/thumb/IMG_2632.JPG?1374584449", "/system/photos/avatars/000/000/075/thumb/family.jpg?1374750950", "/system/photos/avatars/000/000/076/thumb/IMG_2629.JPG?1374751465"]
+names = ["IMG_2632.JPG", "family.jpg", "IMG_2629.JPG"]
+
+
+zip_info = Hash.new
+i=0
+names.each do |f|
+  zip_info[f] = paths[i]
+  i = i+1
+end
+puts"Hello world !"
+puts zip_info
+puts">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"

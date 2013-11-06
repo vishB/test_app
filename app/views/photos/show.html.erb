@@ -1,0 +1,20 @@
+<div class="row-fluid">
+  <ul class="thumbnails">
+    <li class="span4">
+      <div class="thumbnail">
+        <%= image_tag @photo.avatar(:medium) %>
+        <p><%= @photo.name %></p>
+        <p><%= @photo.description %></p>
+        <p><%= @photo.location %></p>
+        <p><%= @photo.privacy %></p>
+        <p><%= @photo.binary_data%></p>
+       </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', albums_path %>
+

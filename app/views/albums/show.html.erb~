@@ -1,0 +1,43 @@
+<div class="album">
+<div><%=image_tag("album.png")%></div>
+</div>
+<div></div>
+
+<p id="notice"><%#= notice %></p><br/>
+<p>
+  <strong>Name:</strong>
+  <%= @album.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @album.description %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @album.location %>
+</p>
+
+<p>
+  <strong>Privacy:</strong>
+  <%= @album.privacy %>
+</p>
+<%#= link_to (<span class="label label-important">Important</span>Info 	)%>
+<span class="label label-default">
+<%= link_to "Get Zip file",zip_path(@album)%>
+</span>
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
+
+
+<%=link_to (image_tag("add_photos.png")),new_photo_path(current_user,:album=>"#{@album.id}")%>
+<%=image_tag("settings.png",:width=>"50px",:height=>"50px",:id=>"settings")%>
+
+<div><%=render :partial=>'photos/photo_list'%></div>
+
+
+
+
+

@@ -1,0 +1,45 @@
+
+<div class="gallery-bg" style="height:900px;">
+  <%= will_paginate @photos, :class=>"apple_pagination"%>
+  <div style="height:70px;">
+    <div class="tag">
+      <%if @name.nil?%>
+       All Photos
+       <%else%>
+      <%=@name%>
+      <%end%>
+      </div>
+    <div style="float:left">
+      <%= link_to (image_tag("add.png",:width=>"40px",:height=>"40px")), new_photo_path,:title=>"Add Photo",:id=>"addphoto" %>
+    </div>
+  </div>
+  <% @photos.each do |photo| %>
+  <div class="tilt pic item">
+    <span class="play"></span>
+    <a class="fancybox" rel="group" href="<%=photo.avatar(:original)%>">
+        <%=image_tag(photo.avatar(:thumb))%>
+      </a>
+      <%#=image_tag("bin.png",:id=>"test",:style=>"display:none;")%>
+      <div class="tools">
+        <div class="pull-right"><%=link_to(image_tag("cool_icons/delete.png"), photo, method: :delete, data: { confirm: 'Are you sure?' }) %>
+        <%= link_to (image_tag("cool_icons/edit.png")), edit_photo_path(photo) %>
+        <%=check_box_tag("check#{photo.id}", value = "1", checked = false, options = {})%>
+        </div>
+      </div>
+      <div class="image-name">
+        <%unless photo.name.blank?%>
+          <%=photo.name%>
+        <%else%>
+          <%=link_to "<Add Details>", edit_photo_path(photo)%>
+        <%end%>
+          
+      </div>  
+  </div>
+  <%end%>
+  
+    
+
+</div>
+
+
+

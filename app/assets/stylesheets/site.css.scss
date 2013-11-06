@@ -1,0 +1,138 @@
+// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.main-menu{
+  background-color: #03B4C6;
+  border-color: #67D2DC;
+  border-style: solid;
+  border-width: 0.5px;
+  float: left;
+  margin: 10px;
+  padding: 70px;
+  text-align: center;
+  width: 25%;
+  border-radius:20px;
+}
+
+.main-cover {
+    height: 410px;
+    margin-left: 300px;
+    padding-bottom: 50px;
+    padding:85px;
+    width: 52%;
+}
+
+
+#upload:hover{
+  /*background-image: url('upload-bg.png');*/
+  background-color:#ffce00;
+  border-color: #fbd0b8;
+  opacity:0.80;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+#explore:hover{
+  background-color: #7f8e93;
+  border-color: #c0c1c0;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+#share:hover{
+  background-color:#33C9F2;
+  border-color:#9CCEDB;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+#download:hover{
+  background-color:#62a64d;
+  border-color: #a3cd96;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.main-text a{
+  color: white;
+  font-family: 'arial';
+  font-size: 24px;
+  font-weight: normal;
+  
+}
+
+.main-text a:hover{
+  background-color: inherit;
+
+}
+
+.main-cover-border{
+  border-color: white;
+  border-style: solid;
+  border-width: 18px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-top: 24px;
+  border-radius: 54px 54px 54px 54px;
+  background-color:#333333;
+}
+
+.download-bg{
+  background-color:#2590B9;
+}
+
+.download-bg h2{
+  color: white;
+  font-family: tahoma,sans-serif,times new roman;
+  font-size: 21px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+.download{
+  margin-left:auto;
+  margin-right:auto;
+  width:82%;
+}
+
+.download-even{
+  background-color: purple;
+  color: white;
+  height: 26px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.download-odd{
+  background-color: orange;
+  color: white;
+  height: 26px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5px;background-color:orange;
+  padding-top: 5px;
+  margin-right: 25px; 
+  margin-left: 25px;
+}
+
+.download-odd a{
+  color:white;
+  font-weight:bold;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align:right;
+}
+
+.download-even a{
+  color:white;
+  font-weight:bold;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align:right;
+}

@@ -1,0 +1,55 @@
+<%= form_for(@photo,:multipart=>true ) do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <ul class="thumbnails">
+    <li class="span4">
+      <% if params[:id] %>
+        <%=image_tag (@photo.avatar(:medium))%>
+      <%else%>
+        <%=image_tag "thumb.png", :alt => "Upload image", :class=>"thumbnail"%>
+      <%end%>
+    </li>
+    </ul>
+      <%#=@photo.inspect%>    
+      <%= f.file_field :avatar if @photo.id.nil?%><br>
+  </div><br/>
+  <div class="field">
+    <%= f.text_field :name,:placeholder=>"Image title" %>
+    <%= f.hidden_field :user_id, :value=>current_user.id%>
+    <%if @album.blank?%>
+      <%= f.collection_select(:album_id, Album.all, :id, :name,:include_blank => 'none' )%>
+    <%else%>
+      <%= f.hidden_field :album_id, :value=>"#{@album}" %>
+    <%end%>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :placeholder=>"Image description" %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, :placeholder=>"Where was it taken" %>
+  </div>
+  <div class="field">
+    <%#= f.label :privacy %><br>
+    <%#= f.text_field :privacy %>
+  </div>
+  <div class="field">
+    <%#= f.label :binary_data %><br>
+    <%#= f.text_field :binary_data %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class=>"btn btn-primary" %>
+  </div>
+<% end %>

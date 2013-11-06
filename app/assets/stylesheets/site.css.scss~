@@ -1,0 +1,60 @@
+// Place all the styles related to the site controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.main-menu{
+  background-color: #AD97D4;
+  border-color: #D9CAF3;
+  border-style: solid;
+  border-width: 0.5px;
+  float: left;
+	
+  margin: 10px;
+  padding: 70px;
+  text-align: center;
+  width: 25%;
+}
+
+/* #f2f8fd #eee8f3 #6ab0c4 00abee*/
+
+
+.main-cover {
+    background-color: #6AB0C4;
+    border: 2px solid #5E9CAE;
+    border-radius: 188px 5px 234px 8px;
+    height: 410px;
+    margin-left: 300px;
+    padding-bottom: 50px;
+    padding-left: 58px;
+    padding-top: 60px;
+    width: 52%;
+}
+
+#upload:hover{
+  background-color: #f4af90;
+  border-color: #f6bfa6;
+}
+
+#explore:hover{
+ background-color: #7f8e93;
+  border-color: #8f9ca0;
+}
+
+#share:hover{
+  background-color:#8ac6ef;
+  border-color:#71acd6;
+  /*#7acdf2*/
+}
+
+.main-text a{
+  color: white;
+  font-family: 'arial';
+  font-size: 36px;
+  font-weight: bold;
+  
+}
+
+    
+
+

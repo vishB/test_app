@@ -1,0 +1,22 @@
+require 'rubygems'
+require 'zip/zip'
+
+@static_path = '/home/vishal/workspace/fotoz/public'
+
+zip_info = {"IMG_2632.JPG"=>"#{@static_path}/system/photos/avatars/000/000/071/thumb", "family.jpg"=>"#{@static_path}/system/photos/avatars/000/000/075/thumb", "IMG_2629.JPG"=>"#{@static_path}/system/photos/avatars/000/000/076/thumb"}
+
+
+    zipfile_name = "/home/vishal/workspace/fotoz/album2.zip"
+
+    Zip::ZipFile.open(zipfile_name, Zip::ZipFile::CREATE) do |zipfile|
+      zip_info.each do |filename,path|
+        # Two arguments:
+        #     # - The name of the file as it will appear in the archive
+        #         # - The original file, including the path to find it
+        zipfile.add(filename, path + '/' + filename)
+      end
+    end
+    
+    
+    
+ 

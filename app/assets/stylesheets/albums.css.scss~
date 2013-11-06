@@ -1,0 +1,56 @@
+// Place all the styles related to the Albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.album{
+  border: 0.1px solid #CCCCCC;
+  float: left;
+  height: 145px;
+  margin: 20px;
+  padding-top: 10px;
+  width: 135px;
+  }
+  
+  .album-cover{
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: 0.1px;
+  }
+  
+  .item-album{
+    border: 10px solid #FFFFFF;
+    box-shadow: 3px 3px 3px #777777;
+    float: left;
+    margin: 9.4px;
+    width: 19%;
+    }
+    
+  .album-img{
+    height: 140px;
+    width: 255px;
+  }
+  
+  .album-thumb{   
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    height: 165px;
+    padding: 10px 20px 20px 40px;
+    width: 100%;
+  }
+  
+  .logo{
+   height: 93px;
+   width: 90px;
+  }
+  
+  .albumssss-thumb:hover{
+    background-color:grey;
+  }
+  
+  .zip{
+    width: 32px;
+    height:32px;
+  }

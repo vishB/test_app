@@ -1,0 +1,18 @@
+<div class="download">
+	<div class="download-bg">
+		<h2>Download Direct :</h2>
+	</div>
+	    <%count = 0%>
+		<%@album.each do |album| %>
+		<%if count%2 == 0%>
+		  <div class="download-even">
+		<%else%>
+		  <div class="download-odd">
+		<%end%>
+	        <p style="float:left;margin-left: 50px;width:100px;"> <%= album.name.capitalize%> </p>&nbsp;|&nbsp;
+	        <p style="float:right;margin-right: 50px;"> <%= link_to 'Download', zip_path(album)%> </p>
+	      </div>
+	      <%count = count + 1%>
+		<%end%>
+	
+</div>
