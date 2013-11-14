@@ -36,7 +36,8 @@ Fotoz::Application.routes.draw do
       get 'share', to: 'site#share'
       post 'move_to_album', to: 'albums#move_to_album'
       get 'send_request', to: 'friends#invitation'
-      get 'profile', to: 'user_details#index'
+      get 'profile', to: 'details#index'
+      
 
 #  get 'profile', to: 'users#show'
 

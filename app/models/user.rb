@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   has_many :albums
   has_many :photos
   has_many :friends
-  has_one :user_details
-
+  has_one  :detail
   include Authentication::ActiveRecordHelpers
-
 end
