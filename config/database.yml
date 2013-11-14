@@ -10,8 +10,8 @@ development:
   database: fotoz_development
   pool: 5
   username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  password: admin
+  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,8 +23,8 @@ test:
   database: fotoz_test
   pool: 5
   username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  password: admin
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
@@ -33,5 +33,5 @@ production:
   database: fotoz_production
   pool: 5
   username: root
-  password:
-  socket: /var/lib/mysql/mysql.sock
+  password: admin
+  socket: /var/run/mysqld/mysqld.sock

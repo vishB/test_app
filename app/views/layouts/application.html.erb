@@ -16,7 +16,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="brand" href="#" id="logo"><%=image_tag("my_photoz2.png")%></a>
-          <div class="nav-collapse collapse">
+          <div class="nav-collapse collapse" >
           <%if user_signed_in?%>
             <p class="navbar-text pull-right">
               Logged in as <%=current_user.email%>&nbsp;|&nbsp;&nbsp;<%=link_to"Signout",destroy_user_session_path%>
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-top:30px;">
       <%= yield %>
     </div>
 

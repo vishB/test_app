@@ -56,7 +56,7 @@ class PhotosController < ApplicationController
           :content_type => 'text/html',
           :layout => false
         }
-        format.json { render json: {files: [@photo.to_jq_upload]}, status: :created, location: @photo }
+        format.json { render json: {files: [@photo.to_jq_upload]}, status: :created, location: @album }
       else
         format.html { render action: 'new' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
