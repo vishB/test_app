@@ -15,7 +15,8 @@ class Photo < ActiveRecord::Base
       "size" => read_attribute(:avatar_file_size),
       "url" => avatar.url(:original),
       "delete_url" => photos_path,
-      "delete_type" => "DELETE"
+      "delete_type" => "DELETE",
+      #"create_url" => albums_path
     }
   end
   
