@@ -1,29 +1,57 @@
-<h1>Listing details</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @details.each do |detail| %>
-      <tr>
-        <td><%= detail.name %></td>
-        <td><%= detail.address %></td>
-        <td><%= link_to 'Show', detail %></td>
-        <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
-        <td><%= link_to 'Destroy', detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  
+    <div class="hero-unit">
+        <h1>Welcome User</h1>
+        <p class="lead">Please update your profile.</p>
+        <%= form_for(@user_details) do |f| %>
+  <% if @user_details.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_details.errors.count, "error") %> prohibited this album from being saved:</h2>
 
-<br>
+      <ul>
+      <% @user_details.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="hero-unit">
+  <div class="field">
+    <%#= f.label :name %><br>
+    <%= f.text_field :name ,:placeholder=>"Album Name"%>
+  </div>
+  <div class="field">
+    <%#= f.label :description %><br>
+    <%= f.text_area :age ,:placeholder=>"Description" %>
+  </div>
+  <div class="field">
+    <%#= f.label :location %><br>
+    <%= f.text_field :sex ,:placeholder=>"Where was it taken"%>
+  </div>
+  <div class="field">
+    <%#= f.label :privacy %><br>
+    <%= f.text_field :address1 ,:placeholder=>"Address1"%>
+  </div>
+  <div class="field">
+    <%#= f.label :privacy %><br>
+    <%= f.text_field :address2 ,:placeholder=>"Address2"%>  
+  </div>
 
-<%= link_to 'New Detail', new_detail_path %>
+  <div class="field">
+    <%#= f.label :privacy %><br>
+    <%= f.text_field :profession ,:placeholder=>"Profession"%>  
+  </div>
+  <div class="modal-footer" >
+    
+    <%= link_to 'Back', albums_path,:class=>"btn" %>
+    <%= f.submit :class=>"btn btn-primary"%>
+  </div>
+</div>
+
+<% end %>
+
+        
+        <p><a href="#" class="btn btn-success btn-large">Submit</a></p>
+    </div>
+  

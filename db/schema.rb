@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131029075520) do
+ActiveRecord::Schema.define(version: 20131114111803) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -25,9 +25,14 @@ ActiveRecord::Schema.define(version: 20131029075520) do
 
   create_table "details", force: true do |t|
     t.string   "name"
-    t.string   "address"
+    t.integer  "age"
+    t.string   "sex"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "profession"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "friends", force: true do |t|
