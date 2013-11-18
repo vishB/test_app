@@ -52,13 +52,11 @@ class PhotosController < ApplicationController
         #format.html { redirect_to @photo, notice: 'Photo was successfully uploaded.' }
         #format.json { render json:  @photo, status: :created }
         format.html {
-          render :json => [@photo.to_jq_upload].to_json,
-          :content_type => 'text/html',
-          :layout => false
+         redirect_to albums_path
         }
 
-        format.html { render albums_path }
-        format.json { render json: {files: [@photo.to_jq_upload]}, status: :created, location: @photo }
+        #format.html { render albums_path }
+        #	format.json { render json: {files: [@photo.to_jq_upload]}, status: :created, location: @photo }
       else
         format.html { render action: 'new' }
         format.json { render json: @photo.errors, status: :unprocessable_entity }
