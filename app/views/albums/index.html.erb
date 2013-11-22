@@ -13,44 +13,49 @@
 		})(jQuery);
 	</script>
 
-<div class="panel panel-primary" id="album-scroll">
-  <div class="panel-heading">
-    <h3 class="panel-title">Albums
-    <a href="#myModal" role="button" data-toggle="modal" id="clickme" title="Create New Album"><%=image_tag("add_album1.png")%></a></h3>
-  </div>
-  
-  <div style="float:right;">
-      <h4>
-        <%=link_to "All", albums_path,:class=>"album-link"%>(<%=@all_photos.count%> photos)
-      </h4>
-    </div>
-  <%@albums.each do |album|%>
-    <div class = "album-thumb">
-      <div class ="album-content">
-        <%=link_to (image_tag("photo_album.png",:class=>"logo")),albums_path(:album_id => album),:class=>"album-link"%>
-      <p>
-          <%=link_to "#{album.name}", albums_path(:album_id => album),:class=>"album-link"%><br/>
-        <%=album.photos.count%> photos  
-      </p>
-      <div class="tools">
-        <%= link_to (image_tag("zip2.png",:class=>"zip",:title=>"download it")),zip_path(album)%>
-        <%= link_to (image_tag("cool_icons/edit.png",:title=>"edit")), edit_album_path(album) %>
-        <%= link_to (image_tag("cool_icons/delete.png",:title=>"delete")), album, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    </div>
-    </div>
-  <%end%>
-</div>
-<div style="float:left;">
-<div class="container">
   <div class="row">
-    <div class="gallery-bg" style="height:900px;">
-    <%=render :partial=>'photos/photo_list'%>
+    
+      <div class="bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav affix">
+          <li class="active album-thumb">
+            <a href="#albums">
+              <i class="icon-chevron-right"></i>
+                Albums
+            </a>
+          </li>
+          <%@albums.each do |album|%>
+            <li>
+              <div class = "album-thumb">
+                <div class ="album-content">
+                  <%=link_to (image_tag("photo_album.png",:class=>"logo")),albums_path(:album_id => album),:class=>"album-link"%>
+                  <p>
+                  <%=link_to "#{album.name}", albums_path(:album_id => album),:class=>"album-link"%><br/>
+                  <%=album.photos.count%> photos  
+                  </p>
+                  <div class="tools">
+                    <%= link_to (image_tag("zip2.png",:class=>"zip",:title=>"download it")),zip_path(album)%>
+                    <%= link_to (image_tag("cool_icons/edit.png",:title=>"edit")), edit_album_path(album) %>
+                    <%= link_to (image_tag("cool_icons/delete.png",:title=>"delete")), album, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <%end%>
+
+        </ul>
+      </div>
+      
+    <div class="pull-right gallery-background">
+      <div class="bs-docs-example bs-docs-example-submenus span12">
+        <%=render :partial=>'photos/photo_list'%> 
+      </div>         
+    </div>
   </div>
-</div>
-</div>
-</div>
-
-
+      
+    
+  
+    
   <%=render :partial=>"new_album"%>
+
+    
 
