@@ -52,6 +52,13 @@
     width: 92%;
 }
 
+.gallery-background{
+    background-color: #2590B9;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
 .main-background{
   /* background:url("bg2.png"); */
   background-color: #9cb6c0;
@@ -91,10 +98,10 @@
     float: left;
     height: 700px;
     margin-bottom: 20px;
-    margin-left: -40px;
+    
     margin-right: 11px;
     padding: 15px;
-    position: fixed;
+    position: absolute;
     width: 11%;
 }
 
