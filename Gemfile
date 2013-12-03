@@ -4,7 +4,14 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+group :development do
+  gem 'mysql2'
+end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 
 #User authentication
 gem "devise", "~> 3.0.0.rc"
@@ -30,6 +37,7 @@ gem 'progress_bar'
 #group :development do
 #    gem 'sunspot_solr'
 #  end
+
 
 
 # Use CoffeeScript for .js.coffee assets and views
